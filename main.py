@@ -1,3 +1,4 @@
+import uvicorn
 from fastapi import FastAPI, Request, status
 
 app = FastAPI()
@@ -125,3 +126,7 @@ async def say_hello(tab: str, plugin: str, request: Request):
     data['data']['tabdata'][tab] = tab_part
 
     return data
+
+
+if __name__ == "__main__":
+    uvicorn.run("main:app", host="0.0.0.0", port=8080, reload=True)
